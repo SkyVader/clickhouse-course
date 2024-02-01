@@ -1,0 +1,107 @@
+yc-user@clickhouse-node:~$ sudo apt-get install -y clickhouse-server clickhouse-client
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  clickhouse-common-static
+Suggested packages:
+  clickhouse-common-static-dbg
+The following NEW packages will be installed:
+  clickhouse-client clickhouse-common-static clickhouse-server
+0 upgraded, 3 newly installed, 0 to remove and 3 not upgraded.
+Need to get 276 MB of archives.
+After this operation, 867 MB of additional disk space will be used.
+Get:1 https://packages.clickhouse.com/deb stable/main amd64 clickhouse-common-static amd64 24.1.1.2048 [276 MB]
+Get:2 https://packages.clickhouse.com/deb stable/main amd64 clickhouse-client amd64 24.1.1.2048 [20.7 kB]
+Get:3 https://packages.clickhouse.com/deb stable/main amd64 clickhouse-server amd64 24.1.1.2048 [47.3 kB]
+Fetched 276 MB in 11s (24.9 MB/s)
+Selecting previously unselected package clickhouse-common-static.
+(Reading database ... 110015 files and directories currently installed.)
+Preparing to unpack .../clickhouse-common-static_24.1.1.2048_amd64.deb ...
+Unpacking clickhouse-common-static (24.1.1.2048) ...
+Selecting previously unselected package clickhouse-client.
+Preparing to unpack .../clickhouse-client_24.1.1.2048_amd64.deb ...
+Unpacking clickhouse-client (24.1.1.2048) ...
+Selecting previously unselected package clickhouse-server.
+Preparing to unpack .../clickhouse-server_24.1.1.2048_amd64.deb ...
+Unpacking clickhouse-server (24.1.1.2048) ...
+Setting up clickhouse-common-static (24.1.1.2048) ...
+Setting up clickhouse-server (24.1.1.2048) ...
+ClickHouse binary is already located at /usr/bin/clickhouse
+Symlink /usr/bin/clickhouse-server already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-server to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-client already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-client to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-local already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-local to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-benchmark already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-benchmark to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-copier already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-copier to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-obfuscator already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-obfuscator to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-git-import to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-compressor already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-compressor to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-format already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-format to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-extract-from-config already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-extract-from-config to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-keeper already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-keeper to /usr/bin/clickhouse.
+Symlink /usr/bin/clickhouse-keeper-converter already exists but it points to /clickhouse. Will replace the old symlink to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-keeper-converter to /usr/bin/clickhouse.
+Creating symlink /usr/bin/clickhouse-disks to /usr/bin/clickhouse.
+Creating symlink /usr/bin/ch to /usr/bin/clickhouse.
+Creating symlink /usr/bin/chl to /usr/bin/clickhouse.
+Creating symlink /usr/bin/chc to /usr/bin/clickhouse.
+Creating clickhouse group if it does not exist.
+ groupadd -r clickhouse
+Creating clickhouse user if it does not exist.
+ useradd -r --shell /bin/false --home-dir /nonexistent -g clickhouse clickhouse
+Will set ulimits for clickhouse user in /etc/security/limits.d/clickhouse.conf.
+Creating config directory /etc/clickhouse-server/config.d that is used for tweaks of main server configuration.
+Creating config directory /etc/clickhouse-server/users.d that is used for tweaks of users configuration.
+Config file /etc/clickhouse-server/config.xml already exists, will keep it and extract path info from it.
+/etc/clickhouse-server/config.xml has /var/lib/clickhouse/ as data path.
+/etc/clickhouse-server/config.xml has /var/log/clickhouse-server/ as log path.
+Users config file /etc/clickhouse-server/users.xml already exists, will keep it and extract users info from it.
+Creating log directory /var/log/clickhouse-server/.
+Creating data directory /var/lib/clickhouse/.
+Creating pid directory /var/run/clickhouse-server.
+ chown -R clickhouse:clickhouse '/var/log/clickhouse-server/'
+ chown -R clickhouse:clickhouse '/var/run/clickhouse-server'
+ chown  clickhouse:clickhouse '/var/lib/clickhouse/'
+ groupadd -r clickhouse-bridge
+ useradd -r --shell /bin/false --home-dir /nonexistent -g clickhouse-bridge clickhouse-bridge
+ chown -R clickhouse-bridge:clickhouse-bridge '/usr/bin/clickhouse-odbc-bridge'
+ chown -R clickhouse-bridge:clickhouse-bridge '/usr/bin/clickhouse-library-bridge'
+Enter password for default user:
+Password for default user is saved in file /etc/clickhouse-server/users.d/default-password.xml.
+Setting capabilities for clickhouse binary. This is optional.
+ chown -R clickhouse:clickhouse '/etc/clickhouse-server'
+
+ClickHouse has been successfully installed.
+
+Start clickhouse-server with:
+ sudo clickhouse start
+
+Start clickhouse-client with:
+ clickhouse-client --password
+
+Synchronizing state of clickhouse-server.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable clickhouse-server
+Created symlink /etc/systemd/system/multi-user.target.wants/clickhouse-server.service → /lib/systemd/system/clickhouse-server.service.
+Setting up clickhouse-client (24.1.1.2048) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
